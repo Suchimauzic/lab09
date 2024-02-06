@@ -25,10 +25,25 @@
 
         <Button
             android:id="@+id/btnBack"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:onClick="btnBackClick"
             android:text="Вернуться назад" />
+
+        <Button
+            android:id="@+id/btnScaleMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnScaleMinus"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/btnScalePlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnScalePlus"
+            android:text="+" />
     </LinearLayout>
 
 </LinearLayout>

@@ -14,6 +14,7 @@ public class MySurface extends SurfaceView {
     Paint p;
     float xmin, xmax;
     float ymin, ymax;
+    float XMIN, XMAX;
     float[] x;
     float[] y;
     int n;
@@ -21,6 +22,8 @@ public class MySurface extends SurfaceView {
     public void update() {
         xmin = arr.min(x, n);
         xmax = arr.max(x, n);
+        XMIN = xmin;
+        XMAX = xmax;
         ymin = arr.min(y, n);
         ymax = arr.max(y, n);
     }

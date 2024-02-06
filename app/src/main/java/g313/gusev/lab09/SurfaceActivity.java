@@ -11,13 +11,15 @@ import math.Interp;
 
 public class SurfaceActivity extends AppCompatActivity {
 
+    MySurface ms = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surface);
 
         Intent intent = getIntent();
-        MySurface ms = findViewById(R.id.mySurface);
+        ms = findViewById(R.id.mySurface);
 
         String stringCountPoints, stringMaxX, stringMinX;
         int countPoints, maxX, minX;
@@ -56,5 +58,27 @@ public class SurfaceActivity extends AppCompatActivity {
 
     public void btnBackClick(View v) {
         finish();
+    }
+
+    public void btnScalePlus(View v) {
+        ms.xmin += 2;
+        ms.xmax -= 2;
+        if (ms.xmin < ms.xmax) {
+            ms.invalidate();
+            return;
+        }
+        ms.xmin -= 2;
+        ms.xmax += 2;
+    }
+
+    public void btnScaleMinus(View v) {
+        ms.xmin -= 2;
+        ms.xmax += 2;
+        if (ms.xmin > ms.XMIN && ms.xmax < ms.XMAX) {
+            ms.invalidate();
+            return;
+        }
+        ms.xmin += 2;
+        ms.xmax -= 2;
     }
 }
