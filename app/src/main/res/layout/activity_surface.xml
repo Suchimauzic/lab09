@@ -9,41 +9,67 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="684dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <g313.gusev.lab09.MySurface
             android:id="@+id/mySurface"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:onClick="btnBackClick"
-            android:text="Вернуться назад" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnScaleMinus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="btnScaleMinus"
-            android:text="-" />
+            <Button
+                android:id="@+id/btnTransLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="btnTransLeft"
+                android:text="Left" />
 
-        <Button
-            android:id="@+id/btnScalePlus"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnTransRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="btnTransRight"
+                android:text="Right" />
+
+            <Button
+                android:id="@+id/btnScaleMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="btnScaleMinus"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/btnScalePlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="btnScalePlus"
+                android:text="+" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="btnScalePlus"
-            android:text="+" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:onClick="btnBackClick"
+                android:text="Вернуться назад" />
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -61,24 +61,22 @@ public class SurfaceActivity extends AppCompatActivity {
     }
 
     public void btnScalePlus(View v) {
-        ms.xmin += 2;
-        ms.xmax -= 2;
-        if (ms.xmin < ms.xmax) {
-            ms.invalidate();
-            return;
-        }
-        ms.xmin -= 2;
-        ms.xmax += 2;
+        ms.scaleUp(2.f);
+        ms.invalidate();
     }
 
     public void btnScaleMinus(View v) {
-        ms.xmin -= 2;
-        ms.xmax += 2;
-        if (ms.xmin > ms.XMIN && ms.xmax < ms.XMAX) {
-            ms.invalidate();
-            return;
-        }
-        ms.xmin += 2;
-        ms.xmax -= 2;
+        ms.scaleDown(2.f);
+        ms.invalidate();
+    }
+
+    public void btnTransLeft(View v) {
+        ms.translateLeft(2.f);
+        ms.invalidate();
+    }
+
+    public void btnTransRight(View v) {
+        ms.translateRight(2.f);
+        ms.invalidate();
     }
 }

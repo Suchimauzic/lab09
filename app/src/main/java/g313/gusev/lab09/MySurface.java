@@ -55,4 +55,36 @@ public class MySurface extends SurfaceView {
             y0 = y1;
         }
     }
+
+    public void scaleUp(float numb) {
+        if (xmin + numb < xmax - numb) {
+            xmax -= numb;
+            xmin += numb;
+        }
+    }
+
+    public void scaleDown(float numb) {
+        if (xmin - numb > XMIN && xmax + numb < XMAX) {
+            xmax += numb;
+            xmin -= numb;
+        }
+        else {
+            xmax = XMAX;
+            xmin = XMIN;
+        }
+    }
+
+    public void translateLeft(float numb) {
+        if (xmin > XMIN) {
+            xmax -= numb;
+            xmin -= numb;
+        }
+    }
+
+    public void translateRight(float numb) {
+        if (xmax < XMAX) {
+            xmax += numb;
+            xmin += numb;
+        }
+    }
 }
