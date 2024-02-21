@@ -21,34 +21,22 @@ public class SurfaceActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ms = findViewById(R.id.mySurface);
 
-        String stringCountPoints, stringMaxX, stringMinX;
-        int countPoints, maxX, minX;
+        float xMin = intent.getFloatExtra("xMin", 0.0f);
+        float xMax = intent.getFloatExtra("xMax", 0.0f);
+        int points = intent.getIntExtra("points", 0);
 
-        stringCountPoints = intent.getStringExtra("countPoints");
-        stringMaxX = intent.getStringExtra("eMaxX");
-        stringMinX = intent.getStringExtra("eMinX");
-
-        try {
-            countPoints = Integer.parseInt(stringCountPoints);
-            maxX = Integer.parseInt(stringMaxX);
-            minX = Integer.parseInt(stringMinX);
-        } catch (Exception ex) {
-            Toast.makeText(this, "Ввод данных был некорректен, график не вычислиться", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (countPoints < 1) {
+        if (points < 1) {
             Toast.makeText(this, "Невозможен ввод стольких точек, минимум 1", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        ms.n = countPoints;
+        ms.n = points;
 
         ms.x = new float[ms.n];
         ms.y = new float[ms.n];
 
         for (int i = 0; i < ms.n; i++) {
-            ms.x[i] = Interp.map(i, 0, ms.n - 1, minX, maxX);
+            ms.x[i] = Interp.map(i, 0, ms.n - 1, xMin, xMax);
             ms.y[i] = (float) Math.cos(ms.x[i]);
         }
 

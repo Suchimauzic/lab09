@@ -27,17 +27,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickSurface(View v) {
-        if (countPoints.getText().toString() == "" && eMaxX.getText().toString() == "" && eMinX.getText().toString() == "") {
-            Toast.makeText(this, "Нельзя оставлять пустые строки", Toast.LENGTH_SHORT).show();
+        float xMin, xMax;
+        int points;
+
+        try {
+            xMin = Float.parseFloat(eMinX.getText().toString());
+            xMax = Float.parseFloat(eMaxX.getText().toString());
+            points = Integer.parseInt(countPoints.getText().toString());
+        }
+        catch (Exception ex) {
+            Toast.makeText(this, "Input was incorrect", Toast.LENGTH_SHORT).show();
             return;
         }
 
-
-
         Intent intent = new Intent(this, SurfaceActivity.class);
-        intent.putExtra("countPoints", countPoints.getText().toString());
-        intent.putExtra("eMaxX", eMaxX.getText().toString());
-        intent.putExtra("eMinX", eMinX.getText().toString());
+        intent.putExtra("points", points);
+        intent.putExtra("xMin", xMin);
+        intent.putExtra("xMax", xMax);
 
         startActivityForResult(intent, 414);
     }
